@@ -120,7 +120,6 @@ class CoolStudentController {
     }
 
     private boolean isCool(Student student) {
-        System.out.println("Cool");
         return student.getName().equals("Alex Popsor");
     }
 }
