@@ -1,0 +1,24 @@
+version: '3'
+services:
+  discovery-service:
+    build: './discovery-service'
+    ports:
+      - "8761:8761" 
+  api-gateway:
+    build: './api-gateway'
+    ports:
+      - "8080:8080"
+    depends_on:
+      - discovery-service
+  student-service:
+    build: './student-service'
+    ports:
+      - "8090:8090"
+    depends_on:
+      - discovery-service
+  grades-service:
+    build: './grades-service'
+    ports:
+      - "8091:8091"
+    depends_on:
+      - discovery-service
